@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+  import React from 'react'
+  import Photo from './photo.jpg'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  class App extends React.Component{
+
+    state = {Person: 
+      {fullName: 'Yosra Sahnoun' ,
+      bio: 'Etudiante'  ,
+      imgSrc: Photo , 
+      profession: 'Etudiante',
+    },show:true}
+
+    componentDidMount
+    
+    render(){
+      return(
+        <>
+        {
+          
+
+          this.state.show && (<>  <p>Fullname : {this.state.Person.fullName}</p>
+            <p>Biography : {this.state.Person.bio}</p>
+            <img src={this.state.Person.imgSrc} />
+            <p>Profession: {this.state.Person.profession}</p></>)
+        }
+        <button onClick={()=>{this.setState({show:!this.state.show })}}>change</button>
+        </>
+      )
+    }
+  }
 
 export default App;

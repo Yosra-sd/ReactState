@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Number</th>
+            <th>Buttons</th>
+        </tr>
+        <tr *ngFor="let m of service.listprofiles" data-href="../formulaire/formulaire.component.html">
+            <td>{{m._id}}</td>
+            <td>{{m.name}}</td>
+            <td>{{m.lname}}</td>
+            <td>{{m.phone}}</td>
+            <td>
+                <button type="button" class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                </button>
+
+                <button type="button" class="btn btn-danger" rel="tooltip" (click)="deleteProfile(m._id)">
+                    <i class="fa fa-times"></i>
+                </button>
+            </td>
+        </tr>
+
+    </table>
+    <p></p>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr");
+        console.log(rows);
+    })
+</script>
+
+</html>
